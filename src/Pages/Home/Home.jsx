@@ -2,6 +2,7 @@ import Card from "../../components/Card/Card";
 import React, { useState, useEffect } from "react";
 import Titulo from "../../components/Titulo/Titulo"
 import SortButton from "../../components/SortButton/SortButton";
+import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 
 const Home = ({ movies, setMovies }) => {
   const backup = movies;
@@ -59,6 +60,16 @@ const Home = ({ movies, setMovies }) => {
         ) : (
           <p>No movies found...</p>
         )}
+      </div>
+      <div>
+        <ListaPeliculas
+          tipo="No vistas"
+          peliculas={movies}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+        />
+        <ListaPeliculas
+          tipo="Vistas"
+          peliculas={movies}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+        />
       </div>
     </div>
   );

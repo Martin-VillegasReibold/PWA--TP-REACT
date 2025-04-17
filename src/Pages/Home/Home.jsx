@@ -4,7 +4,7 @@ import Titulo from "../../components/Titulo/Titulo"
 import SortButton from "../../components/SortButton/SortButton";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 
-const Home = ({ movies, setMovies }) => {
+const Home = ({ movies, setMovies, noVistas, setNoVistas, vistas, setVistas }) => {
   const backup = movies;
 
   const [search, setSearch] = useState("");
@@ -24,6 +24,26 @@ const Home = ({ movies, setMovies }) => {
 
   const update = (arreglo) => {
     setMovies(arreglo); //no terminado, el filtrado no retorna a su estado previo
+  };
+
+  const filteredNoVistas = noVistas.filter(
+    (noVistas) =>
+      noVistas.title.toLowerCase().includes(search.toLowerCase()) ||
+      noVistas.director.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const filteredVistas = vistas.filter(
+    (vistas) =>
+      vistas.title.toLowerCase().includes(search.toLowerCase()) ||
+      vistas.director.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const updateNoVistas = (arreglo) => {
+    setNoVistas(arreglo); //no terminado, el filtrado no retorna a su estado previo
+  };
+
+  const updateVistas = (arreglo) => {
+    setVistas(arreglo); //no terminado, el filtrado no retorna a su estado previo
   };
 
   return (
@@ -64,11 +84,11 @@ const Home = ({ movies, setMovies }) => {
       <div>
         <ListaPeliculas
           tipo="No vistas"
-          peliculas={movies}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={filteredNoVistas}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
         <ListaPeliculas
           tipo="Vistas"
-          peliculas={movies}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={filteredVistas}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
       </div>
     </div>

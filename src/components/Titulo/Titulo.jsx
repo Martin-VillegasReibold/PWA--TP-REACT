@@ -1,10 +1,7 @@
-import "./Titulo.module.css"
+import "./Titulo.module.css";
 
-
-const Titulo =({title}) => {
-    return(
-        <h1>{title}</h1>
-    );
+const Titulo = ({ title }) => {
+  return <h1>{title}</h1>;
 };
 
 export default Titulo;

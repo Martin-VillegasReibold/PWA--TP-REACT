@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Card from "../Card/Card";
 import "./SortButton.module.css";
 
 const SortButton = ({ List, Set }) => {
@@ -23,8 +22,6 @@ const SortButton = ({ List, Set }) => {
     <>
       <button onClick={() => sorting("year")}>Sort by Year</button>
       <button onClick={() => sorting("rating")}>Sort by Rating</button>
-
-      {console.log(List)}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import Show from "./components/Show/Show";
+import Home from "./Pages/Home/Home";
 import React, { useState } from "react";
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <>
-      <Show movies={movies} />
+      <Home movies={movies} setMovies={setMovies} />
     </>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Card from "../Card/Card";
+import "./SortButton.module.css"
 
-const AscDescOrder = ({ array }) => {
+const SortButton = ({ array, update }) => {
   //const [MyArray, setMyArray] = useState([]);
   const [sortStatus, setSortStatus] = useState(true);
 
@@ -25,19 +26,21 @@ const AscDescOrder = ({ array }) => {
     if (sortStatus) {
       array = data.sort((a, b) => b.rating - a.rating); //.year .rating
       setSortStatus(!sortStatus);
+      update(array);
     } else {
       array = data.sort((a, b) => a.rating - b.rating);
       setSortStatus(!sortStatus);
+      update(array);
     }
   };
 
   return (
     <>
-      <button onClick={handleSort}>ClickMe to Sort</button>
+      <button onClick={handleSort}>Sort by Rating</button>
+
       {console.log(array)}
-      
     </>
   );
 };
 
-export default AscDescOrder;
+export default SortButton;

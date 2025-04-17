@@ -1,8 +1,11 @@
-import Card from "../Card/Card";
-import React, { useState } from "react";
-import AscDescOrder from "../AscDescOrder/AscDescOrder";
+import Card from "../../components/Card/Card";
+import React, { useState, useEffect } from "react";
+import Titulo from "../../components/Titulo/Titulo"
+import SortButton from "../../components/SortButton/SortButton";
 
-const Show = ({ movies }) => {
+const Home = ({ movies, setMovies }) => {
+  const backup = movies;
+
   const [search, setSearch] = useState("");
 
   const handleSearchChange = (event) => {
@@ -18,9 +21,13 @@ const Show = ({ movies }) => {
       movie.director.toLowerCase().includes(search.toLowerCase())
   );
 
+  const update = (arreglo) => {
+    setMovies(arreglo); //no terminado, el filtrado no retorna a su estado previo
+  };
+
   return (
     <div>
-      <h1>Movies</h1>
+      <Titulo title = "Movies"/>
       <div className="search-container">
         <input
           type="text"
@@ -29,7 +36,9 @@ const Show = ({ movies }) => {
           onChange={handleSearchChange} //detecta cambio
         />
       </div>
-     <AscDescOrder array={filteredMovies}/>
+      <div>
+        <SortButton array={filteredMovies} update={update} />
+      </div>
       <div className="movie-list">
         {filteredMovies.length > 0 ? ( //verifica si el arreglo de busqueda esta vacio
           filteredMovies.map(
@@ -55,4 +64,4 @@ const Show = ({ movies }) => {
   );
 };
 
-export default Show;
+export default Home;

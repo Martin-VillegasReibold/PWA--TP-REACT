@@ -1,44 +1,30 @@
 import React, { useState } from "react";
 import Card from "../Card/Card";
-import "./SortButton.module.css"
+import "./SortButton.module.css";
 
-const SortButton = ({ array, update }) => {
-  //const [MyArray, setMyArray] = useState([]);
-  const [sortStatus, setSortStatus] = useState(true);
+const SortButton = ({ List, Set }) => {
+  const [order, setOrder] = useState("asc");
 
-  {
-    array.map((movie, index) => (
-      <Card
-        key={index}
-        title={movie.title}
-        image={movie.image}
-        director={movie.director}
-        year={movie.year}
-        genre={movie.genre}
-        rating={movie.rating}
-        type={movie.type}
-      />
-    ));
-  }
+  const sorting = (col) => {
+    if (order === "asc") {
+      const sorted = [...List].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      Set(sorted);
+      setOrder("dsc");
+    }
 
-  const handleSort = () => {
-    const data = array;
-    if (sortStatus) {
-      array = data.sort((a, b) => b.rating - a.rating); //.year .rating
-      setSortStatus(!sortStatus);
-      update(array);
-    } else {
-      array = data.sort((a, b) => a.rating - b.rating);
-      setSortStatus(!sortStatus);
-      update(array);
+    if (order === "dsc") {
+      const sorted = [...List].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      Set(sorted);
+      setOrder("asc");
     }
   };
 
   return (
     <>
-      <button onClick={handleSort}>Sort by Rating</button>
+      <button onClick={() => sorting("year")}>Sort by Year</button>
+      <button onClick={() => sorting("rating")}>Sort by Rating</button>
 
-      {console.log(array)}
+      {console.log(List)}
     </>
   );
 };

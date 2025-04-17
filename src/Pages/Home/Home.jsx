@@ -1,6 +1,6 @@
 import Card from "../../components/Card/Card";
 import React, { useState, useEffect } from "react";
-import Titulo from "../../components/Titulo/Titulo"
+import Titulo from "../../components/Titulo/Titulo";
 import SortButton from "../../components/SortButton/SortButton";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 
@@ -22,13 +22,9 @@ const Home = ({ movies, setMovies }) => {
       movie.director.toLowerCase().includes(search.toLowerCase())
   );
 
-  const update = (arreglo) => {
-    setMovies(arreglo); //no terminado, el filtrado no retorna a su estado previo
-  };
-
   return (
     <div>
-      <Titulo title = "Movies"/>
+      <Titulo title="Movies" />
       <div className="search-container">
         <input
           type="text"
@@ -38,7 +34,7 @@ const Home = ({ movies, setMovies }) => {
         />
       </div>
       <div>
-        <SortButton array={filteredMovies} update={update} />
+        <SortButton List={movies} Set={setMovies} />
       </div>
       <div className="movie-list">
         {filteredMovies.length > 0 ? ( //verifica si el arreglo de busqueda esta vacio
@@ -64,11 +60,11 @@ const Home = ({ movies, setMovies }) => {
       <div>
         <ListaPeliculas
           tipo="No vistas"
-          peliculas={movies}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={movies} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
         <ListaPeliculas
           tipo="Vistas"
-          peliculas={movies}//aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={movies} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
       </div>
     </div>

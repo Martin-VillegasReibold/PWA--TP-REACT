@@ -60,11 +60,11 @@ const Home = ({ movies, setMovies, noVistas, setNoVistas, vistas, setVistas }) =
       <div>
         <ListaPeliculas
           tipo="No vistas"
-          peliculas={movies} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={noVistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
         <ListaPeliculas
           tipo="Vistas"
-          peliculas={movies} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={vistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
       </div>
     </div>

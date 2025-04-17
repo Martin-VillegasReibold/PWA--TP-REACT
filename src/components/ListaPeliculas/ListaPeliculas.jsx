@@ -6,9 +6,10 @@ const ListaPeliculas = ({tipo, peliculas}) => {
             <h1>{tipo}</h1>
             <div className="movie-list">
                 {peliculas.length > 0 ?(
-                    peliculas.map((pelicula) => {
+                    peliculas.map((pelicula, index) => {
                         return (
                             <Card
+                                key={index}
                                 title={pelicula.title}
                                 image={pelicula.image}
                                 director={pelicula.director}

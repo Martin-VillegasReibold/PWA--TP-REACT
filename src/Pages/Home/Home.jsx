@@ -4,7 +4,7 @@ import Titulo from "../../components/Titulo/Titulo";
 import SortButton from "../../components/SortButton/SortButton";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 
-const Home = ({ movies, setMovies }) => {
+const Home = ({ movies, setMovies, noVistas, setNoVistas, vistas, setVistas }) => {
   const backup = movies;
 
   const [search, setSearch] = useState("");

@@ -29,6 +29,18 @@ const Home = ({
       movie.director.toLowerCase().includes(search.toLowerCase())
   );
 
+  const guardarLocalStorage = (clave, valor) => {
+    localStorage.setItem(clave, JSON.stringify(valor));
+  }
+
+  useEffect=(() => {
+    guardarLocalStorage("noVistas", noVistas);
+  }, [noVistas]);
+
+  useEffect=(() => {
+    guardarLocalStorage("vistas", vistas);
+  }, [vistas]);
+
   return (
     <div>
       <Titulo title="Movies" />

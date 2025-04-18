@@ -5,7 +5,7 @@ const m1 = {
   title: "Bad Boys: Ride or Die",
   image:
     "https://i.pinimg.com/736x/a7/cc/8a/a7cc8ab06f3eadcf6a3c00c5638c04cc.jpg",
-  director: "Adil El Arbi, Bilall Fallah",
+  director: "Adil El Arbi",
   year: 2024,
   genre: "Comedia",
   rating: 4,
@@ -45,8 +45,18 @@ const m4 = {
   type: "Pelicula",
 };
 
+const m5 = {
+  title: "ONE PIECE",
+  image: "https://pics.filmaffinity.com/one_piece-985097858-large.jpg",
+  director: "Matt Owens",
+  year: 2024,
+  genre: "Aventura",
+  rating: 4,
+  type: "Serie",
+};
+
 function App() {
-  const [movies, setMovies] = useState([m1, m2, m3, m4]);
+  const [movies, setMovies] = useState([m1, m2, m3, m4, m5]);
 
   const [noVistas, setNoVistas] = useState([m1, m2]);
 

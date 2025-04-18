@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import SortButton from "../../components/SortButton/SortButton";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
+import FilterButton from "../../components/FilterButton/FilterButton";
 
 const Home = ({
   movies,
@@ -12,7 +13,6 @@ const Home = ({
   vistas,
   setVistas,
 }) => {
-  const backup = movies;
 
   const [search, setSearch] = useState("");
 
@@ -42,6 +42,7 @@ const Home = ({
       </div>
       <div>
         <SortButton List={movies} Set={setMovies} />
+        <FilterButton Array={movies} Setfil={setMovies} />
       </div>
       <div className="movie-list">
         {filteredMovies.length > 0 ? ( //verifica si el arreglo de busqueda esta vacio

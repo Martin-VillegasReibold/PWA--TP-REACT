@@ -1,15 +1,39 @@
 # Grupo 14(Rojo)
-- FAI-2258 Cifuentes Flores Andrés Emanuel 
-- FAI-3236 Villegas Reibold Martin Esteban 
-- FAI-4971 Farroni Carrera Juan Manuel 
+
+- FAI-2258 Cifuentes Flores Andrés Emanuel
+- FAI-3236 Villegas Reibold Martin Esteban
+- FAI-4971 Farroni Carrera Juan Manuel
 
 # Descripcion del proyecto
+
 Gestor de Peliculas y Series por Ver y Vistas
 
-La aplicación permite al usuario agregar nuevas películas o series, marcarlas como vistas, editarlas 
-y eliminarlas. Cada ítem tiene título, director, año, género (select), rating y tipo (película o serie). 
+La aplicación permite al usuario agregar nuevas películas o series, marcarlas como vistas, editarlas
+y eliminarlas. Cada ítem tiene título, director, año, género (select), rating y tipo (película o serie).
 Se muestran dos listas: una con contenido por ver y otra con contenido visto.
 
+## Archivos iniciales:
+
+### index.js
+
+Este archivo es el punto de entrada principal de la aplicación React. Desde este archivo se renderiza
+el componente "App" dentro del DOM de la pagina HTML ("index.html"). Utiliza "ReactDOM.createRoot()" para
+inicializar la aplicacion y vincularla al elemento con id "root".
+
+### App.js
+
+Contiene el componente principal de la aplicación. Desde acá se definen las rutas, el layout general y
+se importan los distintos componentes y páginas qeu conformas la estructura principal de la app.
+
+### index.css
+
+Este el archivo de estilos globales. Se aplica a toda la aplicacion y permite definir estilos comunes que
+afecten a todos los componentes.
+
+### package.json
+
+Este archivo contiene toda la informacion del proyecto y sus dependecias. Incluye el nombre y version del
+proyecto, scripts, dependencias necesarias para que el proyecto funcione y dependencias de desarrollo.
 
 ## React + Vite
 
@@ -23,4 +47,3 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-

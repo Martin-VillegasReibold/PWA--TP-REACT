@@ -29,6 +29,30 @@ const Home = ({
       movie.director.toLowerCase().includes(search.toLowerCase())
   );
 
+  const filteredNoVistas = noVistas.filter(
+    (noVistas) =>
+      noVistas.title.toLowerCase().includes(search.toLowerCase()) ||
+      noVistas.director.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const filteredVistas = vistas.filter(
+    (vistas) =>
+      vistas.title.toLowerCase().includes(search.toLowerCase()) ||
+      vistas.director.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const guardarLocalStorage = (clave, valor) => {
+    localStorage.setItem(clave, JSON.stringify(valor));
+  }
+
+  useEffect(() => {
+    guardarLocalStorage("noVistas", noVistas);
+  }, [noVistas]);
+
+  useEffect(() => {
+    guardarLocalStorage("vistas", vistas);
+  }, [vistas]);
+
   return (
     <div>
       <Titulo title="Movies" />
@@ -68,11 +92,11 @@ const Home = ({
       <div>
         <ListaPeliculas
           tipo="No vistas"
-          peliculas={noVistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={filteredNoVistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
         <ListaPeliculas
           tipo="Vistas"
-          peliculas={vistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={filteredVistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
         />
       </div>
     </div>

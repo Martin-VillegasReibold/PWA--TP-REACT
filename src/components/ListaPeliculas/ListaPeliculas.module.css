@@ -1,0 +1,16 @@
+.generosContainer{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.generosContainer p{
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background-color: #f2f2f2;
+    color: #000000;
+    border-radius: 8px;
+    font-weight: 500;
+}

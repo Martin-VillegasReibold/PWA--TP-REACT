@@ -1,21 +1,24 @@
 import "./FilterButton.module.css";
 import React, { useState } from "react";
 const FilterButton = ({ Array, Setfil }) => {
-  const allgenre = ["All", ...new Set(Array.map((arreglo) => arreglo.genre))];
+  const allgenre = ["Todo", ...new Set(Array.map((arreglo) => arreglo.genre))];
   const [genre, setGenre] = useState(allgenre);
   const alltype = [...new Set(Array.map((arreglo) => arreglo.type))];
   const [type, setType] = useState(alltype);
   const [data, setData] = useState(Array);
+  const [save, setSave] = useState(Array.length);
 
   const filterCat = (category) => {
-    if (category === "All") {
+    if (category === "Todo") {
       Setfil(data);
+      setSave(data.length);
       return;
     }
     const filteredData = data.filter(
       (card) => card.genre === category || card.type === category
     );
     Setfil(filteredData);
+    setSave(filteredData.length);
   };
 
   return (
@@ -41,6 +44,7 @@ const FilterButton = ({ Array, Setfil }) => {
               {category}
             </button>
           ))}
+          <h3>Listados: {save}</h3>
         </div>
       </div>
     </>

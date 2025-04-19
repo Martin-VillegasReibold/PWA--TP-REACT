@@ -56,8 +56,6 @@ const m5 = {
 };
 
 function App() {
-  const [movies, setMovies] = useState([m1, m2, m3, m4, m5]);
-
   const [noVistas, setNoVistas] = useState([m1, m2, m5]);
 
   const [vistas, setVistas] = useState([m3, m4]);
@@ -65,8 +63,6 @@ function App() {
   return (
     <>
       <Home
-        movies={movies}
-        setMovies={setMovies}
         noVistas={noVistas}
         setNoVistas={setNoVistas}
         vistas={vistas}

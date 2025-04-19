@@ -1,8 +1,9 @@
 import Card from "../Card/Card";
 import Titulo from "../Titulo/Titulo";
 import styles from "./ListaPeliculas.module.css";
+import Button from "../Button/Button";
 
-const ListaPeliculas = ({ tipo, peliculas }) => {
+const ListaPeliculas = ({ tipo, peliculas, cambiarLista }) => {
   const contadorGenero = peliculas.reduce((lista, pelicula) => {
     lista[pelicula.genre] = (lista[pelicula.genre] || 0) + 1;
     return lista;
@@ -23,16 +24,21 @@ const ListaPeliculas = ({ tipo, peliculas }) => {
         {peliculas.length > 0 ? (
           peliculas.map((pelicula, index) => {
             return (
-              <Card
-                key={index}
-                title={pelicula.title}
-                image={pelicula.image}
-                director={pelicula.director}
-                year={pelicula.year}
-                genre={pelicula.genre}
-                rating={pelicula.rating}
-                type={pelicula.type}
-              />
+              <div className="card" key={index}>
+                <Card
+                  title={pelicula.title}
+                  image={pelicula.image}
+                  director={pelicula.director}
+                  year={pelicula.year}
+                  genre={pelicula.genre}
+                  rating={pelicula.rating}
+                  type={pelicula.type}
+                />
+                <Button
+                  texto={tipo === "No vistas" ? "Marcar como vista" : "Marcar como no vista"}
+                  onClick={() => cambiarLista(pelicula)}
+                />
+              </div>
             );
           })
         ) : (

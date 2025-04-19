@@ -11,6 +11,18 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
     setSearch(event.target.value); //actualiza search
   };
 
+  const cambiarLista = (pelicula) => {
+    if(noVistas.includes(pelicula)){
+      const nuevasNoVistas = noVistas.filter(p => p.title !== pelicula.title);
+      setNoVistas(nuevasNoVistas);
+      setVistas([...vistas, pelicula]);
+    }else{
+      const nuevasVistas = vistas.filter(p => p.title !== pelicula.title);
+      setVistas(nuevasVistas);
+      setNoVistas([...noVistas, pelicula]);
+    }
+  };
+
   const filteredNoVistas = noVistas.filter(
     (noVistas) =>
       noVistas.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -50,13 +62,15 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
         <FilterButton Array={noVistas} Setfil={setNoVistas} />
         <ListaPeliculas
           tipo="No vistas"
-          peliculas={filteredNoVistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={filteredNoVistas}
+          cambiarLista={cambiarLista}
         />
         <SortButton List={vistas} Set={setVistas} />
         <FilterButton Array={vistas} Setfil={setVistas} />
         <ListaPeliculas
           tipo="Vistas"
-          peliculas={filteredVistas} //aca en un futuro voy a modificar las movies en 2 (NoVistas y Vistas)
+          peliculas={filteredVistas}
+          cambiarLista={cambiarLista}
         />
       </div>
     </div>

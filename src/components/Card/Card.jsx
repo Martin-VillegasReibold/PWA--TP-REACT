@@ -1,8 +1,9 @@
 import "./Card.css";
+import Button from "../Button/Button";
 
 const Card = ({ image, title, director, year, genre, rating, type }) => {
   return (
-    <div className="card">
+    <>
       <img src={image} alt={title} className="card-image" />
       <div className="card-content">
         <h2 className="card-title"> {title}</h2>
@@ -12,7 +13,7 @@ const Card = ({ image, title, director, year, genre, rating, type }) => {
         <h3 className="card-data"> {rating}</h3>
         <h3 className="card-data"> {type}</h3>
       </div>
-    </div>
+    </>
   );
 };
 

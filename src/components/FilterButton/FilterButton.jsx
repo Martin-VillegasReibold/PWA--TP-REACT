@@ -1,5 +1,7 @@
 import "./FilterButton.module.css";
 import React, { useState } from "react";
+import Button from "../Button/Button";
+
 const FilterButton = ({ Array, Setfil }) => {
   const allgenre = ["Todo", ...new Set(Array.map((arreglo) => arreglo.genre))];
   const [genre, setGenre] = useState(allgenre);
@@ -26,23 +28,19 @@ const FilterButton = ({ Array, Setfil }) => {
       <div>
         <div className="select_filter">
           {genre.map((category) => (
-            <button
-              type="button"
-              onClick={() => filterCat(category)}
+            <Button
               key={category}
-            >
-              {category}
-            </button>
+              onClick={() => filterCat(category)}
+              texto={category}
+            />
           ))}
 
           {type.map((category) => (
-            <button
-              type="button"
-              onClick={() => filterCat(category)}
-              key={category}
-            >
-              {category}
-            </button>
+            <Button
+            key={category}
+            onClick={() => filterCat(category)}
+            texto={category}
+          />
           ))}
           <h3>Listados: {save}</h3>
         </div>

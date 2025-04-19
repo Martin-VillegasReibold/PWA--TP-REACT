@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SortButton from "../../components/SortButton/SortButton";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 import FilterButton from "../../components/FilterButton/FilterButton";
+import Button from "../../components/Button/Button";
 
 const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const [search, setSearch] = useState("");

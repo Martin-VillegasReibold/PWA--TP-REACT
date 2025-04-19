@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SortButton.module.css";
+import Button from "../Button/Button";
 
 const SortButton = ({ List, Set }) => {
   const [order, setOrder] = useState("asc");
@@ -20,8 +21,15 @@ const SortButton = ({ List, Set }) => {
 
   return (
     <>
-      <button onClick={() => sorting("year")}>Año</button>
-      <button onClick={() => sorting("rating")}>Rating</button>
+      <Button
+        onClick={() => sorting("year")}
+        texto="Año"
+      />
+      <Button
+        onClick={() => sorting("rating")}
+        texto="Rating"
+      />
+
     </>
   );
 };

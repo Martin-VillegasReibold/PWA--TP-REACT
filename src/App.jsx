@@ -1,5 +1,5 @@
 import Home from "./Pages/Home/Home";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const m1 = {
   title: "Bad Boys: Ride or Die",
@@ -55,10 +55,22 @@ const m5 = {
   type: "Serie",
 };
 
-function App() {
-  const [noVistas, setNoVistas] = useState([m1, m2, m5]);
+const defaultNoVistas = [m1, m2, m5];
+const defaultVistas = [m3, m4];
 
-  const [vistas, setVistas] = useState([m3, m4]);
+function App() {
+
+  const obtenerLocalStorage = (clave, fallback) => {
+    const datos = localStorage.getItem(clave);
+    return datos ? JSON.parse(datos) : fallback;
+  };
+  const [noVistas, setNoVistas] = useState(() =>
+    obtenerLocalStorage("noVistas", defaultNoVistas)
+  );
+
+  const [vistas, setVistas] = useState(() =>
+    obtenerLocalStorage("vistas", defaultVistas)
+  );
 
   return (
     <>

@@ -57,6 +57,7 @@ input[type="text"] {
   font-size: 1em;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: border-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.87);
 }
 
 input[type="text"]:focus {
@@ -64,3 +65,4 @@ input[type="text"]:focus {
   outline: none;
   box-shadow: 0 2px 4px rgba(100,108,366,0.5);
 }
+

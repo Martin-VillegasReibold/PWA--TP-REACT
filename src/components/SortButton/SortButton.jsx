@@ -21,15 +21,8 @@ const SortButton = ({ List, Set }) => {
 
   return (
     <>
-      <Button
-        onClick={() => sorting("year")}
-        texto="Año"
-      />
-      <Button
-        onClick={() => sorting("rating")}
-        texto="Rating"
-      />
-
+      <Button onClick={() => sorting("year")} texto="Año" />
+      <Button onClick={() => sorting("rating")} texto="Rating" />
     </>
   );
 };

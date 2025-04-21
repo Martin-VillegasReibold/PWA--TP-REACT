@@ -2,15 +2,22 @@ import Card from "../Card/Card";
 import Titulo from "../Titulo/Titulo";
 import styles from "./ListaPeliculas.module.css";
 import Button from "../Button/Button";
+import SortButton from "../../components/SortButton/SortButton";
+import FilterButton from "../../components/FilterButton/FilterButton";
 
-const ListaPeliculas = ({ tipo, peliculas, cambiarLista }) => {
+const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set }) => {
   const contadorGenero = peliculas.reduce((lista, pelicula) => {
     lista[pelicula.genre] = (lista[pelicula.genre] || 0) + 1;
     return lista;
   }, {});
+
   return (
     <div>
       <Titulo title={tipo} />
+      <div className={styles.Filters}>
+        <SortButton List={peliculas} Set={set} />
+        <FilterButton Array={peliculas} Setfil={set} t={tipo} />
+      </div>
       <div className={styles.generosContainer}>
         {Object.keys(contadorGenero).map((genero) => {
           return (
@@ -35,7 +42,7 @@ const ListaPeliculas = ({ tipo, peliculas, cambiarLista }) => {
                   type={pelicula.type}
                 />
                 <Button
-                  texto={tipo === "No vistas" ? "Marcar como vista" : "Marcar como no vista"}
+                  texto={tipo === "No vistas" ? "Marcar" : "Quitar"}
                   onClick={() => cambiarLista(pelicula)}
                 />
               </div>

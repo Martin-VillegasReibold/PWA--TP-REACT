@@ -59,17 +59,16 @@ const defaultNoVistas = [m1, m2, m5];
 const defaultVistas = [m3, m4];
 
 function App() {
-
   const obtenerLocalStorage = (clave, fallback) => {
     const datos = localStorage.getItem(clave);
     return datos ? JSON.parse(datos) : fallback;
   };
   const [noVistas, setNoVistas] = useState(() =>
-    obtenerLocalStorage("noVistas", defaultNoVistas)
+    obtenerLocalStorage("No vistas", defaultNoVistas)
   );
 
   const [vistas, setVistas] = useState(() =>
-    obtenerLocalStorage("vistas", defaultVistas)
+    obtenerLocalStorage("Vistas", defaultVistas)
   );
 
   return (

@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SortButton from "../../components/SortButton/SortButton";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
-import FilterButton from "../../components/FilterButton/FilterButton";
-import Button from "../../components/Button/Button";
 
 const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const [search, setSearch] = useState("");
@@ -12,12 +9,13 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   };
 
   const cambiarLista = (pelicula) => {
-    if(noVistas.includes(pelicula)){
-      const nuevasNoVistas = noVistas.filter(p => p.title !== pelicula.title);
+    //console.log(pelicula)
+    if (noVistas.includes(pelicula)) {
+      const nuevasNoVistas = noVistas.filter((p) => p.title !== pelicula.title);
       setNoVistas(nuevasNoVistas);
       setVistas([...vistas, pelicula]);
-    }else{
-      const nuevasVistas = vistas.filter(p => p.title !== pelicula.title);
+    } else {
+      const nuevasVistas = vistas.filter((p) => p.title !== pelicula.title);
       setVistas(nuevasVistas);
       setNoVistas([...noVistas, pelicula]);
     }
@@ -35,18 +33,20 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
       vistas.director.toLowerCase().includes(search.toLowerCase())
   );
 
+  /*
+
   const guardarLocalStorage = (clave, valor) => {
     localStorage.setItem(clave, JSON.stringify(valor));
   };
 
   useEffect(() => {
-    guardarLocalStorage("noVistas", noVistas);
+    guardarLocalStorage("No vistas", noVistas);
   }, [noVistas]);
 
   useEffect(() => {
-    guardarLocalStorage("vistas", vistas);
+    guardarLocalStorage("Vistas", vistas);
   }, [vistas]);
-
+*/
   return (
     <div>
       <div className="search-container">
@@ -58,19 +58,17 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
         />
       </div>
       <div>
-        <SortButton List={noVistas} Set={setNoVistas} />
-        <FilterButton Array={noVistas} Setfil={setNoVistas} />
         <ListaPeliculas
           tipo="No vistas"
           peliculas={filteredNoVistas}
           cambiarLista={cambiarLista}
+          set={setNoVistas}
         />
-        <SortButton List={vistas} Set={setVistas} />
-        <FilterButton Array={vistas} Setfil={setVistas} />
         <ListaPeliculas
           tipo="Vistas"
           peliculas={filteredVistas}
           cambiarLista={cambiarLista}
+          set={setVistas}
         />
       </div>
     </div>

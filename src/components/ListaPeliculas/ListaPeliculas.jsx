@@ -20,7 +20,6 @@ const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set }) => {
           Array={peliculas}
           Setfil={set}
           t={tipo}
-          cambiar={cambiarLista}
         />
       </div>
       <div className={styles.generosContainer}>

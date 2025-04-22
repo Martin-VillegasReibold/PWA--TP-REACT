@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
+import Titulo from "../../components/Titulo/Titulo";
 
 const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const [search, setSearch] = useState("");
@@ -40,17 +41,9 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
     localStorage.setItem(clave, JSON.stringify(valor));
   };
 
-  /*
-  useEffect(() => {
-    guardarLocalStorage("No vistas", noVistas);
-  }, [cambiarLista]);
-
-  useEffect(() => {
-    guardarLocalStorage("Vistas", vistas);
-  }, [cambiarLista]);
-*/
   return (
     <div>
+      <Titulo title={"Gestor de Peliculas y Series"}/>
       <div className="search-container">
         <input
           type="text"

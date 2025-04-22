@@ -7,14 +7,14 @@ const SortButton = ({ List, Set }) => {
 
   const sorting = (col) => {
     if (order === "asc") {
-      const sorted = [...List].sort((a, b) => (a[col] > b[col] ? 1 : -1));
-      Set(sorted);
+      const sortedA = [...List].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      Set(sortedA);
       setOrder("dsc");
     }
 
     if (order === "dsc") {
-      const sorted = [...List].sort((a, b) => (a[col] < b[col] ? 1 : -1));
-      Set(sorted);
+      const sortedA = [...List].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      Set(sortedA);
       setOrder("asc");
     }
   };

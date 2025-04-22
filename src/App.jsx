@@ -63,6 +63,11 @@ function App() {
     const datos = localStorage.getItem(clave);
     return datos ? JSON.parse(datos) : fallback;
   };
+
+  const guardarLocalStorage = (clave, valor) => {
+    localStorage.setItem(clave, JSON.stringify(valor));
+  };
+
   const [noVistas, setNoVistas] = useState(() =>
     obtenerLocalStorage("No vistas", defaultNoVistas)
   );

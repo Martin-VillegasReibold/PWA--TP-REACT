@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import "./FilterButton.module.css";
 
-const FilterButton = ({ Array, Setfil, t, cambiar }) => {
+const FilterButton = ({ Array, Setfil, t }) => {
   const allgenre = [...new Set(Array.map((arreglo) => arreglo.genre))];
   const [genre, setGenre] = useState("");
   const alltype = [...new Set(Array.map((arreglo) => arreglo.type))];

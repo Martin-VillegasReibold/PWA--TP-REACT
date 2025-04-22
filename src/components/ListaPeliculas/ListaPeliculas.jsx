@@ -16,7 +16,12 @@ const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set }) => {
       <Titulo title={tipo} />
       <div className={styles.Filters}>
         <SortButton List={peliculas} Set={set} />
-        <FilterButton Array={peliculas} Setfil={set} t={tipo} />
+        <FilterButton
+          Array={peliculas}
+          Setfil={set}
+          t={tipo}
+          cambiar={cambiarLista}
+        />
       </div>
       <div className={styles.generosContainer}>
         {Object.keys(contadorGenero).map((genero) => {

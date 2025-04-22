@@ -7,17 +7,20 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const handleSearchChange = (event) => {
     setSearch(event.target.value); //actualiza search
   };
-
   const cambiarLista = (pelicula) => {
     //console.log(pelicula)
     if (noVistas.includes(pelicula)) {
       const nuevasNoVistas = noVistas.filter((p) => p.title !== pelicula.title);
       setNoVistas(nuevasNoVistas);
+      guardarLocalStorage("No vistas", nuevasNoVistas);
       setVistas([...vistas, pelicula]);
+      guardarLocalStorage("Vistas", [...vistas, pelicula]);
     } else {
       const nuevasVistas = vistas.filter((p) => p.title !== pelicula.title);
       setVistas(nuevasVistas);
+      guardarLocalStorage("Vistas", nuevasVistas);
       setNoVistas([...noVistas, pelicula]);
+      guardarLocalStorage("No vistas", [...noVistas, pelicula]);
     }
   };
 
@@ -33,19 +36,18 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
       vistas.director.toLowerCase().includes(search.toLowerCase())
   );
 
-  /*
-
   const guardarLocalStorage = (clave, valor) => {
     localStorage.setItem(clave, JSON.stringify(valor));
   };
 
+  /*
   useEffect(() => {
     guardarLocalStorage("No vistas", noVistas);
-  }, [noVistas]);
+  }, [cambiarLista]);
 
   useEffect(() => {
     guardarLocalStorage("Vistas", vistas);
-  }, [vistas]);
+  }, [cambiarLista]);
 */
   return (
     <div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import "./FilterButton.module.css";
 
-const FilterButton = ({ Array, Setfil, t }) => {
+const FilterButton = ({ Array, Setfil, t, cambiar }) => {
   const allgenre = [...new Set(Array.map((arreglo) => arreglo.genre))];
   const [genre, setGenre] = useState("");
   const alltype = [...new Set(Array.map((arreglo) => arreglo.type))];
@@ -13,26 +13,28 @@ const FilterButton = ({ Array, Setfil, t }) => {
     type: "",
   });
 
-  const makeFilter = (property, newFilterValue) => () => {
-    setFilters({
-      ...filters,
-      [property]: newFilterValue,
-    });
+  const obtenerLocalStorage = (clave, fallback) => {
+    const datos = localStorage.getItem(clave);
+    return datos ? JSON.parse(datos) : fallback;
   };
 
   const filteredArray = Array.filter(
     (prod) =>
       prod.genre.includes(filters.genre) && prod.type.includes(filters.type)
   );
-  //console.log(filteredArray);
 
-  //Alterar localStorage
-  const guardarLocalStorage = (clave, valor) => {
-    localStorage.setItem(clave, JSON.stringify(valor));
+  const makeFilter = (property, newFilterValue) => () => {
+    setFilters({
+      ...filters,
+      [property]: newFilterValue,
+    });
+
+    if (newFilterValue === "") {
+      Setfil(obtenerLocalStorage(t, Array));
+    } else {
+      Setfil(filteredArray);
+    }
   };
-  useEffect(() => {
-    guardarLocalStorage(t, filteredArray);
-  }, [makeFilter]);
 
   return (
     <>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 import Titulo from "../../components/Titulo/Titulo";
+import FormAdd from "../../components/FormAdd/FormAdd";
 
 const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const [search, setSearch] = useState("");
@@ -41,6 +42,27 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
     localStorage.setItem(clave, JSON.stringify(valor));
   };
 
+  //----------------------------------------------------------------------
+  const [formAddMovie, setFormAddMovie] = useState(false);
+  
+  const addMovie = (movie) => {
+    setNoVistas([...noVistas, { ...movie, id: Date.now()}]);
+  };
+
+  const deleteMovie = (title, tipo) => {
+    if(tipo === "Vistas"){
+      setVistas(filteredVistas.filter(movie => movie.title !== title));
+    }
+    if(tipo === "No vistas"){
+      setNoVistas(filteredNoVistas.filter(movie => movie.title !== title));
+    }
+    
+  };
+
+  const updateMovie = (id, updatedData) => {
+    setNoVistas(allMovies.map(movie => movie.id === id ? { ...movie, ...updatedData } : movie));
+  };
+
   return (
     <div>
       <Titulo title={"Gestor de Peliculas y Series"}/>
@@ -53,11 +75,16 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
         />
       </div>
       <div>
+        <button onClick={() =>setFormAddMovie(true)}>Agregar Peli/Serie</button>
+        {formAddMovie && <FormAdd onAdd={addMovie} setFormAdd={setFormAddMovie}/>}
+        </div>
+      <div>
         <ListaPeliculas
           tipo="No vistas"
           peliculas={filteredNoVistas}
           cambiarLista={cambiarLista}
           set={setNoVistas}
+          onDelete={deleteMovie}
         />
         <ListaPeliculas
           tipo="Vistas"

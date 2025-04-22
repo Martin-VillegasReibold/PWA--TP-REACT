@@ -4,8 +4,9 @@ import styles from "./ListaPeliculas.module.css";
 import Button from "../Button/Button";
 import SortButton from "../../components/SortButton/SortButton";
 import FilterButton from "../../components/FilterButton/FilterButton";
+import DeleteMovieButton from "../DeleteMovieButton/DeleteMovieButton";
 
-const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set }) => {
+const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set, onDelete }) => {
   const contadorGenero = peliculas.reduce((lista, pelicula) => {
     lista[pelicula.genre] = (lista[pelicula.genre] || 0) + 1;
     return lista;
@@ -49,6 +50,7 @@ const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set }) => {
                   texto={tipo === "No vistas" ? "Marcar" : "Quitar"}
                   onClick={() => cambiarLista(pelicula)}
                 />
+                <DeleteMovieButton tipo = {tipo} movie = {pelicula} onDelete = {onDelete}/>
               </div>
             );
           })

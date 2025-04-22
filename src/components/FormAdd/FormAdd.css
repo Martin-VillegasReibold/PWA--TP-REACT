@@ -1,0 +1,40 @@
+.contenedor{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(10, 7, 27);
+    border-style: solid;
+    border-width: 5px;
+    animation: cambioColor 1s infinite;
+    padding: 30px;
+}
+
+.index {
+    height: 30px;
+    width: 900px;
+    border-bottom: 2px solid black;
+    padding-left: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-width: 5px;
+    margin: 20px;
+    padding: 15px;
+}
+
+.AddButton {
+    font-family: "press_start_2pregular";
+    box-sizing: border-box;
+    width: 15%;
+    height: 40px;
+    background-color: rgb(121, 230, 111);
+    font-weight: bolder;
+}
+
+.AddButton:hover {
+    background-color: rgb(59, 253, 111);
+}
+
+.AddButton:active {
+    background-color: rgb(139, 199, 133);
+}

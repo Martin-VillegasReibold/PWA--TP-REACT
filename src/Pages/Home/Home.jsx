@@ -44,6 +44,7 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
 
   //----------------------------------------------------------------------
   const [formAddMovie, setFormAddMovie] = useState(false);
+  const [formUpdateMovie, setFormUpdateMovie] = useState(false);
   
   const addMovie = (movie) => {
     setNoVistas([...noVistas, { ...movie, id: Date.now()}]);
@@ -77,6 +78,10 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
       <div>
         <button onClick={() =>setFormAddMovie(true)}>Agregar Peli/Serie</button>
         {formAddMovie && <FormAdd onAdd={addMovie} setFormAdd={setFormAddMovie}/>}
+        {formUpdateMovie && 
+          <FormEdit         
+          setFormUpdate={setFormUpdateMovie}
+          onUpdate={onUpdate}/>}
         </div>
       <div>
         <ListaPeliculas

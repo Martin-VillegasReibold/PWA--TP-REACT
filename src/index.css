@@ -58,6 +58,7 @@ input[type="text"] {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: border-color 0.3s ease;
   background-color: rgba(255, 255, 255, 0.87);
+  color: #1a1a1a;
 }
 
 input[type="text"]:focus {

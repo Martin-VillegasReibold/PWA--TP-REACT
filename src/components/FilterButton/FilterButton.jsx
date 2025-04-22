@@ -36,6 +36,18 @@ const FilterButton = ({ Array, Setfil, t }) => {
     }
   };
 
+  useEffect(() => {
+  if (filters.genre === "" && filters.type === "") {
+    Setfil(obtenerLocalStorage(t, Array));
+  } else {
+    const filteredArray = Array.filter(
+      (prod) =>
+        prod.genre.includes(filters.genre) && prod.type.includes(filters.type)
+    );
+    Setfil(filteredArray);
+  }
+}, [filters]);
+
   return (
     <>
       <div>

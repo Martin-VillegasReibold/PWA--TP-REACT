@@ -18,6 +18,22 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.AddButton {
+  font-family: "press_start_2pregular";
+  box-sizing: border-box;
+  width: 50%;
+  height: 40px;
+  background-color: rgb(60, 255, 0);
+}
+
+.AddButton:hover {
+  background-color: rgb(68, 190, 64);
+}
+
+.AddButton:active {
+  background-color: rgb(34, 180, 29);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

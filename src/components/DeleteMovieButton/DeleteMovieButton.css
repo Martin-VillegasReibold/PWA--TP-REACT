@@ -1,0 +1,16 @@
+.DeleteButton {
+    font-family: "press_start_2pregular";
+    box-sizing: border-box;
+    width: 50%;
+    height: 40px;
+    background-color: rgba(255, 0, 0, 0.74);
+    font-weight: bolder;
+}
+
+.DeleteButton:hover {
+    background-color: rgb(224, 38, 38);
+}
+
+.DeleteButton:active {
+    background-color: rgb(170, 21, 21);
+}

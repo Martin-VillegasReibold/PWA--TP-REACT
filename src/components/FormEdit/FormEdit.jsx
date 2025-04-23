@@ -22,8 +22,8 @@ const FormEdit = ({movie, onUpdate, setFormUpdate, tipo}) => {
         <input name="director" className="index" onChange={handleChange} value={edited.director} placeholder="Ingrese Director" required></input>
         <input type="number" name="year" min="1900" max="2025" className="index" onChange={handleChange} value={edited.year} placeholder="Ingrese Año" required></input>
         <select name="genre" className="index" onChange={handleChange} value={edited.genre} required>
-            <option value="">Género</option>
-            <option value="Acción">Acción</option>
+            <option value="">Genero</option>
+            <option value="Accion">Accion</option>
             <option value="Comedia">Comedia</option>
             <option value="Drama">Drama</option>
             <option value="Terror">Terror</option>
@@ -31,7 +31,8 @@ const FormEdit = ({movie, onUpdate, setFormUpdate, tipo}) => {
         </select>
          <input type="number" name="rating" min="1" max="5" className="index" onChange={handleChange} value={edited.rating} placeholder="Ingrese Rating (1-5)" required></input>
         <select name="type" className="index" onChange={handleChange} value={edited.type} required>
-            <option value="Película">Película</option>
+            <option value="">Tipo</option>
+            <option value="Pelicula">Pelicula</option>
             <option value="Serie">Serie</option>
         </select>
     

@@ -14,8 +14,6 @@ const ListaPeliculas = ({ tipo, peliculas, sinFiltro, cambiarLista, set, onDelet
     return lista;
   }, {});
 
-  const [formUpdateMovie, setFormUpdateMovie] = useState(false);
-
   return (
     <div>
       <Titulo title={tipo} />

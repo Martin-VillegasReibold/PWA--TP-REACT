@@ -85,10 +85,14 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
 
   const updateMovie = (title, updatedData, tipo) => {
     if(tipo === "Vistas"){
-      setVistas(filteredVistas.map(movie => movie.title === title ? { ...movie, ...updatedData } : movie));
+      const nuevasVistas = vistas.map(movie => movie.title === title ? { ...movie, ...updatedData } : movie);
+      setVistas(nuevasVistas);
+      guardarLocalStorage("Vistas", nuevasVistas);
     }
     if(tipo === "No vistas"){
-      setNoVistas(filteredNoVistas.map(movie => movie.title === title ? { ...movie, ...updatedData } : movie));
+      const nuevasNoVistas = noVistas.map(movie => movie.title === title ? { ...movie, ...updatedData } : movie);
+      setNoVistas(nuevasNoVistas);
+      guardarLocalStorage("No vistas", nuevasNoVistas);
     }
   };
 
@@ -109,7 +113,7 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
         />
       </div>
       <div>
-        <button onClick={() =>setFormAddMovie(true)}>Agregar Peli/Serie</button>
+        <button className="AddButton" onClick={() =>setFormAddMovie(true)}>Agregar Peli/Serie</button>
         {formAddMovie && <FormAdd onAdd={addMovie} setFormAdd={setFormAddMovie}/>}
       </div>
       <div>

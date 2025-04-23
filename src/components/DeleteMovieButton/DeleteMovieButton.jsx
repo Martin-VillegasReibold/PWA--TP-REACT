@@ -1,14 +1,16 @@
-//import style from "./AddMovieButton.css";
+import "./DeleteMovieButton.css";
 const DeleteMovieButton = ({tipo, movie, onDelete}) => {
 
     return (
+      <div>
       <button onClick={() => {
         const confirmed = confirm('¿Desea Eliminar la Peli/Serie?');
         if(confirmed) onDelete(movie.title, tipo);
       }}
-      className="text-red-600">
+      className="DeleteButton">
       Eliminar
     </button>
+    </div>
     )
 }
 

@@ -1,15 +1,17 @@
-//import style from "./AddMovieButton.css";
+import "./EditMovieButton.css";
 const EditMovieButton = ({tipo, movie, form, setUpdate}) => {
 
     return (
+        <div>
         <button onClick={() => {
             form(tipo, movie)
             setUpdate(true)
 
           }}
-          className="text-red-600">
+          className="EditButton">
           Editar
         </button>
+        </div>
     )
 }
 

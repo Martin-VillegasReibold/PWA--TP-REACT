@@ -1,0 +1,16 @@
+.EditButton {
+    font-family: "press_start_2pregular";
+    box-sizing: border-box;
+    width: 50%;
+    height: 40px;
+    background-color: rgb(255, 153, 0);
+    font-weight: bolder;
+}
+
+.EditButton:hover {
+    background-color: rgb(190, 224, 38);
+}
+
+.EditButton:active {
+    background-color: rgb(204, 218, 15);
+}

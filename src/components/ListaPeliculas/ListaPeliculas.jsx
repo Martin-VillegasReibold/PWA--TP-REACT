@@ -8,7 +8,7 @@ import FilterButton from "../../components/FilterButton/FilterButton";
 import DeleteMovieButton from "../DeleteMovieButton/DeleteMovieButton";
 import EditMovieButton from "../EditMovieButton.jsx/EditMovieButton";
 
-const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set, onDelete, form, setUpdate}) => {
+const ListaPeliculas = ({ tipo, peliculas, sinFiltro, cambiarLista, set, onDelete, form, setUpdate}) => {
   const contadorGenero = peliculas.reduce((lista, pelicula) => {
     lista[pelicula.genre] = (lista[pelicula.genre] || 0) + 1;
     return lista;
@@ -20,12 +20,8 @@ const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set, onDelete, form, se
     <div>
       <Titulo title={tipo} />
       <div className={styles.Filters}>
-        <SortButton List={peliculas} Set={set} />
-        <FilterButton
-          Array={peliculas}
-          Setfil={set}
-          t={tipo}
-        />
+        <SortButton List={sinFiltro} Set={set} />
+        <FilterButton Array={peliculas} Setfil={set} t={tipo} />
       </div>
       <div className={styles.generosContainer}>
         {Object.keys(contadorGenero).map((genero) => {

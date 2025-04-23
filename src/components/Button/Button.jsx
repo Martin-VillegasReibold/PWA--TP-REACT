@@ -1,3 +1,5 @@
+import "./Button.css"
+
 const Button = ({ texto, onClick }) => {
   return <button onClick={onClick}>{texto}</button>;
 };

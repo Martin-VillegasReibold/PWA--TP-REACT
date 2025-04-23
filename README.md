@@ -12,20 +12,25 @@ La aplicación permite al usuario agregar nuevas películas o series, marcarlas 
 y eliminarlas. Cada ítem tiene título, director, año, género (select), rating y tipo (película o serie).
 Se muestran dos listas: una con contenido por ver y otra con contenido visto.
 
+### Vercel:
+
+https://tpreactgrupo14.vercel.app/
+
 ## Instalación / visualización
+
 ### Requisitos
 
 - Tener instalado [Node.js](https://nodejs.org/)
 
 ### Instalación
 
-1) Clonar el repositorio:
+1. Clonar el repositorio:
 
 ```bash
 git clone https://github.com/Martin-VillegasReibold/PWA--TP-REACT.git
 ```
 
-2) Abrir la terminal en el directorio _/PWA--TP-REACT_ e ingresar:
+2. Abrir la terminal en el directorio _/PWA--TP-REACT_ e ingresar:
 
 ```bash
 npm install
@@ -33,19 +38,19 @@ npm install
 
 ### Visualización
 
-1) Abrir la terminal en el directorio del proyecto  e ingresar:
+1. Abrir la terminal en el directorio del proyecto e ingresar:
 
 ```bash
 npm run dev
 ```
 
 Copiar la URL, en este caso:
+
 ```bash
 http://localhost:5173/
 ```
 
-2) Ingresar en un navegador web la URL.
-
+2. Ingresar en un navegador web la URL.
 
 ## Archivos iniciales:
 

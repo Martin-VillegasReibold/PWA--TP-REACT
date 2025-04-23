@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
-import "./FilterButton.module.css";
+import styles from "./FilterButton.module.css";
 
 const FilterButton = ({ Array, Setfil, t }) => {
   const allgenre = [...new Set(Array.map((arreglo) => arreglo.genre))];
@@ -51,7 +51,7 @@ const FilterButton = ({ Array, Setfil, t }) => {
   return (
     <>
       <div>
-        <select value={type} onChange={(e) => setType(e.target.value)}>
+        <select className={styles.select} value={type} onChange={(e) => setType(e.target.value)}>
           <option value="">Tipo</option>
           {alltype.map((option, i) => {
             return (
@@ -63,7 +63,7 @@ const FilterButton = ({ Array, Setfil, t }) => {
         </select>
         <Button texto={"Aplicar"} onClick={makeFilter("type", type)} />
 
-        <select value={genre} onChange={(e) => setGenre(e.target.value)}>
+        <select className={styles.select} value={genre} onChange={(e) => setGenre(e.target.value)}>
           <option value="">Genero</option>
           {allgenre.map((option, i) => {
             return (

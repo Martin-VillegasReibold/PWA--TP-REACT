@@ -113,7 +113,7 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
         />
       </div>
       <div>
-        <button className="AddButton" onClick={() =>setFormAddMovie(true)}>Agregar Peli/Serie</button>
+        <button className="AddButton" onClick={() =>setFormAddMovie(true)}>Agregar</button>
         {formAddMovie && <FormAdd onAdd={addMovie} setFormAdd={setFormAddMovie}/>}
       </div>
       <div>

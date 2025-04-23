@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 import Titulo from "../../components/Titulo/Titulo";
 import FormAdd from "../../components/FormAdd/FormAdd";
+import FormEdit from "../../components/FormEdit/FormEdit";
 
 const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const [search, setSearch] = useState("");
@@ -45,6 +46,8 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   //----------------------------------------------------------------------
   const [formAddMovie, setFormAddMovie] = useState(false);
   const [formUpdateMovie, setFormUpdateMovie] = useState(false);
+  const [editMovie, setEditMovie] = useState("");
+  const [typeEditMovie, setTypeEditMovie] = useState("");
   
   const addMovie = (movie) => {
     setNoVistas([...noVistas, { ...movie, id: Date.now()}]);
@@ -60,8 +63,18 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
     
   };
 
-  const updateMovie = (id, updatedData) => {
-    setNoVistas(allMovies.map(movie => movie.id === id ? { ...movie, ...updatedData } : movie));
+  const updateMovie = (title, updatedData, tipo) => {
+    if(tipo === "Vistas"){
+      setVistas(filteredVistas.map(movie => movie.title === title ? { ...movie, ...updatedData } : movie));
+    }
+    if(tipo === "No vistas"){
+      setNoVistas(filteredNoVistas.map(movie => movie.title === title ? { ...movie, ...updatedData } : movie));
+    }
+  };
+
+  const form = (tipo, movie) =>{
+    setTypeEditMovie(tipo)
+    setEditMovie(movie)
   };
 
   return (
@@ -78,11 +91,7 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
       <div>
         <button onClick={() =>setFormAddMovie(true)}>Agregar Peli/Serie</button>
         {formAddMovie && <FormAdd onAdd={addMovie} setFormAdd={setFormAddMovie}/>}
-        {formUpdateMovie && 
-          <FormEdit         
-          setFormUpdate={setFormUpdateMovie}
-          onUpdate={onUpdate}/>}
-        </div>
+      </div>
       <div>
         <ListaPeliculas
           tipo="No vistas"
@@ -90,14 +99,20 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
           cambiarLista={cambiarLista}
           set={setNoVistas}
           onDelete={deleteMovie}
+          form={form}
+          setUpdate={setFormUpdateMovie}
         />
+        {formUpdateMovie && <FormEdit movie={editMovie} onUpdate={updateMovie} setFormUpdate={setFormUpdateMovie} tipo={typeEditMovie}/>}
         <ListaPeliculas
           tipo="Vistas"
           peliculas={filteredVistas}
           cambiarLista={cambiarLista}
           set={setVistas}
+          onDelete={deleteMovie}
+          form={form}
+          setUpdate={setFormUpdateMovie}
         />
-      </div>
+        </div>
     </div>
   );
 };

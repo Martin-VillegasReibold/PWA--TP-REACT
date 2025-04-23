@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "../Card/Card";
 import Titulo from "../Titulo/Titulo";
 import styles from "./ListaPeliculas.module.css";
@@ -5,12 +6,15 @@ import Button from "../Button/Button";
 import SortButton from "../../components/SortButton/SortButton";
 import FilterButton from "../../components/FilterButton/FilterButton";
 import DeleteMovieButton from "../DeleteMovieButton/DeleteMovieButton";
+import EditMovieButton from "../EditMovieButton.jsx/EditMovieButton";
 
-const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set, onDelete }) => {
+const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set, onDelete, form, setUpdate}) => {
   const contadorGenero = peliculas.reduce((lista, pelicula) => {
     lista[pelicula.genre] = (lista[pelicula.genre] || 0) + 1;
     return lista;
   }, {});
+
+  const [formUpdateMovie, setFormUpdateMovie] = useState(false);
 
   return (
     <div>
@@ -50,7 +54,15 @@ const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set, onDelete }) => {
                   texto={tipo === "No vistas" ? "Marcar" : "Quitar"}
                   onClick={() => cambiarLista(pelicula)}
                 />
-                <DeleteMovieButton tipo = {tipo} movie = {pelicula} onDelete = {onDelete}/>
+                <DeleteMovieButton
+                  tipo = {tipo}
+                  movie = {pelicula}
+                  onDelete = {onDelete}/>
+                <EditMovieButton
+                  tipo = {tipo}
+                  movie = {pelicula}
+                  form={form}
+                  setUpdate={setUpdate}/>
               </div>
             );
           })

@@ -61,15 +61,21 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const [formUpdateMovie, setFormUpdateMovie] = useState(false);
   
   const addMovie = (movie) => {
-    setNoVistas([...noVistas, { ...movie, id: Date.now()}]);
+    const nuevaLista = [...noVistas, { ...movie, id: Date.now()}];
+    setNoVistas(nuevaLista);
+    guardarLocalStorage("No vistas", nuevaLista);
   };
 
   const deleteMovie = (title, tipo) => {
     if(tipo === "Vistas"){
-      setVistas(filteredVistas.filter(movie => movie.title !== title));
+      const nuevasVistas = vistas.filter(movie => movie.title !== title);
+      setVistas(nuevasVistas);
+      guardarLocalStorage("Vistas", nuevasVistas);
     }
     if(tipo === "No vistas"){
-      setNoVistas(filteredNoVistas.filter(movie => movie.title !== title));
+      const nuevasNoVistas = noVistas.filter(movie => movie.title !==title);
+      setNoVistas(nuevasNoVistas);
+      guardarLocalStorage("No vistas", nuevasNoVistas);
     }
     
   };

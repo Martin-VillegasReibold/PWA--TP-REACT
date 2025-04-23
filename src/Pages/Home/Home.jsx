@@ -55,7 +55,8 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const obtenerLocalStorage = (clave, fallback) => {
     const datos = localStorage.getItem(clave);
     return datos ? JSON.parse(datos) : fallback;
-  
+  }
+  //----------------------------------------------------------------------
   const [formAddMovie, setFormAddMovie] = useState(false);
   const [formUpdateMovie, setFormUpdateMovie] = useState(false);
   

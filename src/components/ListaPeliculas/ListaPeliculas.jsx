@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import SortButton from "../../components/SortButton/SortButton";
 import FilterButton from "../../components/FilterButton/FilterButton";
 
-const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set }) => {
+const ListaPeliculas = ({ tipo, peliculas, sinFiltro, cambiarLista, set }) => {
   const contadorGenero = peliculas.reduce((lista, pelicula) => {
     lista[pelicula.genre] = (lista[pelicula.genre] || 0) + 1;
     return lista;
@@ -15,12 +15,8 @@ const ListaPeliculas = ({ tipo, peliculas, cambiarLista, set }) => {
     <div>
       <Titulo title={tipo} />
       <div className={styles.Filters}>
-        <SortButton List={peliculas} Set={set} />
-        <FilterButton
-          Array={peliculas}
-          Setfil={set}
-          t={tipo}
-        />
+        <SortButton List={sinFiltro} Set={set} />
+        <FilterButton Array={peliculas} Setfil={set} t={tipo} />
       </div>
       <div className={styles.generosContainer}>
         {Object.keys(contadorGenero).map((genero) => {

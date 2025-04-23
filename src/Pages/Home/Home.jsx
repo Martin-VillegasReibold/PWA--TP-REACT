@@ -11,17 +11,27 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
   const cambiarLista = (pelicula) => {
     //console.log(pelicula)
     if (noVistas.includes(pelicula)) {
-      const nuevasNoVistas = noVistas.filter((p) => p.title !== pelicula.title);
+      const nuevasNoVistas = obtenerLocalStorage("No vistas", noVistas).filter(
+        (p) => p.title !== pelicula.title
+      );
       setNoVistas(nuevasNoVistas);
       guardarLocalStorage("No vistas", nuevasNoVistas);
-      setVistas([...vistas, pelicula]);
-      guardarLocalStorage("Vistas", [...vistas, pelicula]);
+      setVistas([...obtenerLocalStorage("Vistas", vistas), pelicula]);
+      guardarLocalStorage("Vistas", [
+        ...obtenerLocalStorage("Vistas", vistas),
+        pelicula,
+      ]);
     } else {
-      const nuevasVistas = vistas.filter((p) => p.title !== pelicula.title);
+      const nuevasVistas = obtenerLocalStorage("Vistas", vistas).filter(
+        (p) => p.title !== pelicula.title
+      );
       setVistas(nuevasVistas);
       guardarLocalStorage("Vistas", nuevasVistas);
-      setNoVistas([...noVistas, pelicula]);
-      guardarLocalStorage("No vistas", [...noVistas, pelicula]);
+      setNoVistas([...obtenerLocalStorage("No vistas", noVistas), pelicula]);
+      guardarLocalStorage("No vistas", [
+        ...obtenerLocalStorage("No vistas", noVistas),
+        pelicula,
+      ]);
     }
   };
 
@@ -41,9 +51,14 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
     localStorage.setItem(clave, JSON.stringify(valor));
   };
 
+  const obtenerLocalStorage = (clave, fallback) => {
+    const datos = localStorage.getItem(clave);
+    return datos ? JSON.parse(datos) : fallback;
+  };
+
   return (
     <div>
-      <Titulo title={"Gestor de Peliculas y Series"}/>
+      <Titulo title={"Gestor de Peliculas y Series"} />
       <div className="search-container">
         <input
           type="text"
@@ -56,12 +71,14 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
         <ListaPeliculas
           tipo="No vistas"
           peliculas={filteredNoVistas}
+          sinFiltro={noVistas}
           cambiarLista={cambiarLista}
           set={setNoVistas}
         />
         <ListaPeliculas
           tipo="Vistas"
           peliculas={filteredVistas}
+          sinFiltro={vistas}
           cambiarLista={cambiarLista}
           set={setVistas}
         />

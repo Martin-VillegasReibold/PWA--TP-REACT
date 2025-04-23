@@ -12,10 +12,6 @@ La aplicación permite al usuario agregar nuevas películas o series, marcarlas 
 y eliminarlas. Cada ítem tiene título, director, año, género (select), rating y tipo (película o serie).
 Se muestran dos listas: una con contenido por ver y otra con contenido visto.
 
-### Vercel:
-
-https://tpreactgrupo14.vercel.app/
-
 ## Instalación / visualización
 
 ### Requisitos

@@ -1,10 +1,15 @@
 .EditButton {
-    font-family: "press_start_2pregular";
-    box-sizing: border-box;
-    width: 50%;
-    height: 40px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
     background-color: rgb(255, 153, 0);
-    font-weight: bolder;
 }
 
 .EditButton:hover {

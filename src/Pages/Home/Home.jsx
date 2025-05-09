@@ -69,6 +69,7 @@ const Home = ({ noVistas, setNoVistas, vistas, setVistas }) => {
     guardarLocalStorage("No vistas", nuevaLista);
   };
 
+  //Estas dos funciones son muy parecidas, se podrian unir en una sola funcion con algun parametro extra
   const deleteMovie = (title, tipo) => {
     if(tipo === "Vistas"){
       const nuevasVistas = vistas.filter(movie => movie.title !== title);

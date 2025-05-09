@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"; //import sin usar
 import Card from "../Card/Card";
 import Titulo from "../Titulo/Titulo";
 import styles from "./ListaPeliculas.module.css";

@@ -1,3 +1,22 @@
+
+Correcciones:
+- Muy buen readme. Muy completo y prolijo.
+- Muy buen codigo en general, ordenaro, prolijo y facil de entender.
+- Buen manejo de componentes y buena estructura de proyecto
+- Buen uso de local storage, useState y useEffect.
+
+Observaciones:
+- Borren imagenes que se generan por default antes de entregar.
+- Borren codigo que no se usa antes de entregar.
+- Me gusto que tengan distintos componentes botones, la mejor forma de poder manejar eso
+es agregar una prop al componente boton que se llame variant (variant = 'filter', 'sort', 'edit', etc...)
+y segun el variant le carga algunas clases u otras.
+- No estan usando la palabra clave module para sus css. Eso hace que cada css que escriben se vuelva global
+y no sea css unico del componente. Puede llevar a muchos dolores de cabeza y bugs dado que es muy dificil
+rastrear desde donde sale cada clase.
+
+Nota: 9.
+
 # Grupo 14(Rojo)
 
 - FAI-2258 Cifuentes Flores Andrés Emanuel

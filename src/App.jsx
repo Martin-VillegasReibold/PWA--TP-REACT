@@ -59,11 +59,13 @@ const defaultNoVistas = [m1, m2, m5];
 const defaultVistas = [m3, m4];
 
 function App() {
+  //Todos estos estados deberian ir al home, no son propios de App
   const obtenerLocalStorage = (clave, fallback) => {
     const datos = localStorage.getItem(clave);
     return datos ? JSON.parse(datos) : fallback;
   };
 
+  //funcion sin usar, borrarla si no se usa
   const guardarLocalStorage = (clave, valor) => {
     localStorage.setItem(clave, JSON.stringify(valor));
   };

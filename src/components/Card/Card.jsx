@@ -1,4 +1,5 @@
 import "./Card.css";
+//import sin usar
 import Button from "../Button/Button";
 
 const Card = ({ image, title, director, year, genre, rating, type }) => {
